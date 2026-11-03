@@ -1,91 +1,143 @@
-# Pizzería Kotlin
+# Ejemplo de uso: pedidos a domicilio
 
-FLUJO DE EJEMPLO: PEDIDOS A DOMICILIO
+Este recorrido muestra cómo registrar clientes, confirmar pedidos, preparar pizzas, asignar repartidores y consultar el inventario y el reporte del día.
 
-1. REGISTRAR A LOS CLIENTES (OPCIÓN 1)
+Los datos se conservan únicamente durante cada ejecución del programa.
 
-Carolina Muñoz pide para su familia y vive en un departamento de la zona
-Centro. Matías Rojas pide dos pizzas para compartir en una casa de la
-zona Sur. Sus datos de contacto y direcciones aparecen en los resúmenes.
+## 1. Registrar clientes — Opción 1
 
-2. CONFIRMAR EL PEDIDO FAMILIAR DE CAROLINA (OPCIÓN 2)
+Registrar los siguientes clientes:
+
+| Dato | Carolina Muñoz | Matías Rojas |
+|---|---|---|
+| Teléfono | +56900001001 | +56900001002 |
+| Correo | carolina.munoz@example.com | matias.rojas@example.com |
+| Dirección | Av. Los Aromos 1240, departamento 302 | Pasaje Las Acacias 485, casa 2 |
+| Zona | Centro | Sur |
+
+Carolina realiza un pedido familiar y Matías solicita dos pizzas para compartir.
+
+## 2. Confirmar el pedido de Carolina — Opción 2
 
 Seleccionar a Carolina y agregar:
-- 2 pizzas Margarita.
-- 1 pizza Pepperoni.
-- 1 pizza Vegetariana.
-Notas: Entregar en conserjería, departamento 302.
 
-Son cuatro pizzas en total, por lo que corresponde el descuento del 10%,
-aunque sean de distintas variedades. El total con impuesto es 38.020,50 pesos.
-Al confirmar con s se descuentan los ingredientes y el pedido #1 queda
-En preparación, todavía sin repartidor.
+| Pizza | Cantidad | Precio unitario sin impuesto |
+|---|---:|---:|
+| Margarita | 2 | 8.500,00 pesos |
+| Pepperoni | 1 | 9.500,00 pesos |
+| Vegetariana | 1 | 9.000,00 pesos |
 
-3. PREPARAR Y DESPACHAR EL PEDIDO #1 (OPCIÓN 3)
+**Notas:** Entregar en conserjería, departamento 302.
 
-Seleccionar el pedido #1 una vez para marcarlo como Listo y otra vez
-para asignar el reparto. Diego está disponible en la misma zona Centro.
-Mensajes obtenidos del programa:
+El pedido contiene cuatro pizzas, por lo que recibe un **10% de descuento**, aunque sean de distintas variedades.
 
+| Concepto | Monto |
+|---|---:|
+| Subtotal | 35.500,00 pesos |
+| Descuento del 10% | 3.550,00 pesos |
+| Impuesto del 19% sobre el subtotal descontado | 6.070,50 pesos |
+| **Total final** | **38.020,50 pesos** |
+
+Confirmar con `s`. El programa descuenta los ingredientes del inventario y registra el **pedido #1** con estado **En preparación**, todavía sin repartidor.
+
+## 3. Preparar y despachar el pedido #1 — Opción 3
+
+Seleccionar el pedido #1 dos veces:
+
+1. La primera selección lo marca como **Listo**.
+2. La segunda asigna un repartidor y cambia su estado a **En camino**.
+
+Diego está disponible en la zona Centro, por lo que recibe el pedido.
+
+```text
 Pedido #1 marcado como Listo. Aún no tiene repartidor.
 Repartidor asignado: Diego (zona Centro).
 Pedido #1 En camino. Diego tiene este pedido asignado hasta confirmar la entrega.
+```
 
-4. ATENDER A MATÍAS MIENTRAS DIEGO ESTÁ EN REPARTO
+## 4. Atender a Matías mientras Diego está en reparto
 
-En la opción 2, seleccionar a Matías y agregar 2 pizzas Pepperoni.
-Notas: Llamar al llegar; portón gris.
-El pedido #2 suma 22.610,00 pesos con impuesto y no recibe descuento,
-porque contiene solo dos pizzas.
+En la **opción 2**, seleccionar a Matías y agregar **2 pizzas Pepperoni**.
 
-Confirmar con s y luego seleccionar el pedido #2 dos veces en la opción 3:
-la primera lo marca como Listo y la segunda asigna a Sofía, de la zona Sur.
-Mensajes obtenidos del programa:
+**Notas:** Llamar al llegar; portón gris.
 
+| Concepto | Monto |
+|---|---:|
+| Subtotal | 19.000,00 pesos |
+| Descuento | 0,00 pesos |
+| Impuesto del 19% | 3.610,00 pesos |
+| **Total final** | **22.610,00 pesos** |
+
+Este pedido no recibe descuento porque contiene solo dos pizzas.
+
+Confirmar con `s`. Luego, en la **opción 3**, seleccionar el **pedido #2** dos veces para marcarlo como **Listo** y despacharlo con Sofía, de la zona Sur.
+
+```text
 Repartidor asignado: Sofía (zona Sur).
 Pedido #2 En camino. Sofía tiene este pedido asignado hasta confirmar la entrega.
+```
 
-5. REGISTRAR LA ENTREGA A CAROLINA (OPCIÓN 3, PEDIDO #1)
+## 5. Registrar la entrega a Carolina — Opción 3
 
-Cuando Diego entrega en conserjería, seleccionar el pedido #1 para
-registrar la entrega. Matías sigue esperando su pedido, que está En camino.
-Mensaje obtenido del programa:
+Cuando Diego entregue el pedido en conserjería, seleccionar el **pedido #1** para registrar la entrega.
 
+```text
 Entrega del pedido #1 registrada. Diego vuelve a estar disponible.
+```
 
-6. CONSULTAR INVENTARIO Y REPARTIDORES (OPCIONES 4 Y 7)
+El pedido #1 queda **Entregado**, mientras que el pedido #2 continúa **En camino**.
 
-Se confirmaron seis pizzas en total: se consumieron seis porciones de
-masa, salsa y queso; tres de pepperoni y una de champiñones.
-La entrega no vuelve a descontar ingredientes.
+## 6. Consultar inventario y repartidores — Opciones 4 y 7
 
-Inventario obtenido del programa:
+Se confirmaron seis pizzas en total, por lo que se consumieron:
+
+- Seis porciones de masa.
+- Seis porciones de salsa.
+- Seis porciones de queso.
+- Tres porciones de pepperoni.
+- Una porción de champiñones.
+
+Los ingredientes se descuentan al confirmar el pedido. Registrar la entrega no vuelve a descontarlos.
+
+### Inventario resultante — Opción 4
+
+```text
 masa: 14
 salsa: 14
 queso: 14
 pepperoni: 7
 champiñones: 9
 Ingredientes distintos del menú: masa, salsa, queso, pepperoni, champiñones
+```
 
-Disponibilidad obtenida del programa:
-Al despachar se busca primero en la zona del cliente y luego en las zonas más cercanas.
-Tras una entrega, el repartidor queda disponible en la zona del cliente.
+### Disponibilidad de repartidores — Opción 7
+
+Al despachar, el programa busca primero un repartidor disponible en la zona del cliente y luego en las zonas más cercanas.
+
+Después de una entrega, el repartidor queda disponible en la zona del cliente.
+
+```text
 Repartidor: Camila | Zona: Norte | Disponible
 Repartidor: Diego | Zona: Centro | Disponible
 Repartidor: Sofía | Zona: Sur | Ocupado
+```
 
-7. REVISAR EL REPORTE (OPCIÓN 6)
+## 7. Revisar el reporte del día — Opción 6
 
-Hay un pedido completado y uno pendiente. Los bloques siguientes son
-la salida del programa al terminar este recorrido:
+Al finalizar este recorrido hay un pedido completado y uno pendiente.
 
+```text
 === Reporte de pedidos del día ===
 #1 | Carolina Muñoz | 2 x Margarita, 1 x Pepperoni, 1 x Vegetariana | 38.020,50 pesos | Entregado
 #2 | Matías Rojas | 2 x Pepperoni | 22.610,00 pesos | En camino
 
 Completados (1): #1
 Pendientes (1): #2
+```
 
+### Resumen del pedido #1
+
+```text
 ========================================
 RESUMEN DEL PEDIDO #1
 ========================================
@@ -107,7 +159,11 @@ Estado: Entregado
 Repartidor: Diego
 Notas: Entregar en conserjería, departamento 302.
 ========================================
+```
 
+### Resumen del pedido #2
+
+```text
 ========================================
 RESUMEN DEL PEDIDO #2
 ========================================
@@ -128,13 +184,20 @@ Repartidor: Sofía
 Siguiente paso: opción 3, pedido #2 → Confirmar entrega al cliente.
 Notas: Llamar al llegar; portón gris.
 ========================================
+```
 
-Si se sigue el recorrido manualmente, se puede completar la entrega a
-Matías con la opción 3, pedido #2. Sofía quedará disponible y el reporte
-mostrará dos completados y ningún pendiente.
+Para completar la entrega a Matías manualmente, ingresar a la **opción 3**, seleccionar el **pedido #2** y confirmar su entrega.
 
-Para reproducir la demostración automáticamente desde la carpeta del proyecto:
+Sofía quedará disponible y el reporte mostrará **dos pedidos completados y ningún pendiente**.
+
+## Ejecutar la demostración automática
+
+Desde la carpeta del proyecto, ejecutar:
+
+```bash
 ./ejecutar.sh < scripts/ejemplo-entrada.txt
+```
 
-La demostración automática muestra el reporte y cierra la sesión con el
-pedido #2 En camino. Los datos se conservan solo durante cada ejecución.
+La demostración automática muestra el reporte y cierra la sesión con el **pedido #2 En camino**.
+
+**Los datos se conservan solo durante cada ejecución.**
