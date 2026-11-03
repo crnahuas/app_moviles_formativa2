@@ -1,3 +1,140 @@
 # Pizzería Kotlin
 
-Aplicación de consola para registrar clientes, crear pedidos de pizzas, controlar ingredientes y coordinar las entregas por zona. Permite consultar el inventario, reabastecer ingredientes y obtener un reporte con los pedidos completados y pendientes.
+FLUJO DE EJEMPLO: PEDIDOS A DOMICILIO
+
+1. REGISTRAR A LOS CLIENTES (OPCIÓN 1)
+
+Carolina Muñoz pide para su familia y vive en un departamento de la zona
+Centro. Matías Rojas pide dos pizzas para compartir en una casa de la
+zona Sur. Sus datos de contacto y direcciones aparecen en los resúmenes.
+
+2. CONFIRMAR EL PEDIDO FAMILIAR DE CAROLINA (OPCIÓN 2)
+
+Seleccionar a Carolina y agregar:
+- 2 pizzas Margarita.
+- 1 pizza Pepperoni.
+- 1 pizza Vegetariana.
+Notas: Entregar en conserjería, departamento 302.
+
+Son cuatro pizzas en total, por lo que corresponde el descuento del 10%,
+aunque sean de distintas variedades. El total con impuesto es 38.020,50 pesos.
+Al confirmar con s se descuentan los ingredientes y el pedido #1 queda
+En preparación, todavía sin repartidor.
+
+3. PREPARAR Y DESPACHAR EL PEDIDO #1 (OPCIÓN 3)
+
+Seleccionar el pedido #1 una vez para marcarlo como Listo y otra vez
+para asignar el reparto. Diego está disponible en la misma zona Centro.
+Mensajes obtenidos del programa:
+
+Pedido #1 marcado como Listo. Aún no tiene repartidor.
+Repartidor asignado: Diego (zona Centro).
+Pedido #1 En camino. Diego tiene este pedido asignado hasta confirmar la entrega.
+
+4. ATENDER A MATÍAS MIENTRAS DIEGO ESTÁ EN REPARTO
+
+En la opción 2, seleccionar a Matías y agregar 2 pizzas Pepperoni.
+Notas: Llamar al llegar; portón gris.
+El pedido #2 suma 22.610,00 pesos con impuesto y no recibe descuento,
+porque contiene solo dos pizzas.
+
+Confirmar con s y luego seleccionar el pedido #2 dos veces en la opción 3:
+la primera lo marca como Listo y la segunda asigna a Sofía, de la zona Sur.
+Mensajes obtenidos del programa:
+
+Repartidor asignado: Sofía (zona Sur).
+Pedido #2 En camino. Sofía tiene este pedido asignado hasta confirmar la entrega.
+
+5. REGISTRAR LA ENTREGA A CAROLINA (OPCIÓN 3, PEDIDO #1)
+
+Cuando Diego entrega en conserjería, seleccionar el pedido #1 para
+registrar la entrega. Matías sigue esperando su pedido, que está En camino.
+Mensaje obtenido del programa:
+
+Entrega del pedido #1 registrada. Diego vuelve a estar disponible.
+
+6. CONSULTAR INVENTARIO Y REPARTIDORES (OPCIONES 4 Y 7)
+
+Se confirmaron seis pizzas en total: se consumieron seis porciones de
+masa, salsa y queso; tres de pepperoni y una de champiñones.
+La entrega no vuelve a descontar ingredientes.
+
+Inventario obtenido del programa:
+masa: 14
+salsa: 14
+queso: 14
+pepperoni: 7
+champiñones: 9
+Ingredientes distintos del menú: masa, salsa, queso, pepperoni, champiñones
+
+Disponibilidad obtenida del programa:
+Al despachar se busca primero en la zona del cliente y luego en las zonas más cercanas.
+Tras una entrega, el repartidor queda disponible en la zona del cliente.
+Repartidor: Camila | Zona: Norte | Disponible
+Repartidor: Diego | Zona: Centro | Disponible
+Repartidor: Sofía | Zona: Sur | Ocupado
+
+7. REVISAR EL REPORTE (OPCIÓN 6)
+
+Hay un pedido completado y uno pendiente. Los bloques siguientes son
+la salida del programa al terminar este recorrido:
+
+=== Reporte de pedidos del día ===
+#1 | Carolina Muñoz | 2 x Margarita, 1 x Pepperoni, 1 x Vegetariana | 38.020,50 pesos | Entregado
+#2 | Matías Rojas | 2 x Pepperoni | 22.610,00 pesos | En camino
+
+Completados (1): #1
+Pendientes (1): #2
+
+========================================
+RESUMEN DEL PEDIDO #1
+========================================
+Cliente: Carolina Muñoz | Teléfono: +56900001001 | Correo: carolina.munoz@example.com
+Dirección: Av. Los Aromos 1240, departamento 302
+Zona de entrega: Centro
+
+Productos (precios sin impuesto):
+- Margarita | 8.500,00 pesos c/u | Cantidad: 2
+- Pepperoni | 9.500,00 pesos c/u | Cantidad: 1
+- Vegetariana | 9.000,00 pesos c/u | Cantidad: 1
+
+Subtotal: 35.500,00 pesos
+Descuento (10%): 3.550,00 pesos
+Impuestos (19% sobre el subtotal descontado): 6.070,50 pesos
+TOTAL FINAL: 38.020,50 pesos
+
+Estado: Entregado
+Repartidor: Diego
+Notas: Entregar en conserjería, departamento 302.
+========================================
+
+========================================
+RESUMEN DEL PEDIDO #2
+========================================
+Cliente: Matías Rojas | Teléfono: +56900001002 | Correo: matias.rojas@example.com
+Dirección: Pasaje Las Acacias 485, casa 2
+Zona de entrega: Sur
+
+Productos (precios sin impuesto):
+- Pepperoni | 9.500,00 pesos c/u | Cantidad: 2
+
+Subtotal: 19.000,00 pesos
+Descuento (sin descuento): 0,00 pesos
+Impuestos (19% sobre el subtotal descontado): 3.610,00 pesos
+TOTAL FINAL: 22.610,00 pesos
+
+Estado: En camino
+Repartidor: Sofía
+Siguiente paso: opción 3, pedido #2 → Confirmar entrega al cliente.
+Notas: Llamar al llegar; portón gris.
+========================================
+
+Si se sigue el recorrido manualmente, se puede completar la entrega a
+Matías con la opción 3, pedido #2. Sofía quedará disponible y el reporte
+mostrará dos completados y ningún pendiente.
+
+Para reproducir la demostración automáticamente desde la carpeta del proyecto:
+./ejecutar.sh < scripts/ejemplo-entrada.txt
+
+La demostración automática muestra el reporte y cierra la sesión con el
+pedido #2 En camino. Los datos se conservan solo durante cada ejecución.
