@@ -1,0 +1,44 @@
+1
+Carolina Muñoz
++56900001001
+carolina.munoz@example.com
+Av. Los Aromos 1240, departamento 302
+2
+1
+Matías Rojas
++56900001002
+matias.rojas@example.com
+Pasaje Las Acacias 485, casa 2
+3
+2
+1
+1
+2
+2
+1
+3
+1
+0
+Entregar en conserjería, departamento 302.
+s
+3
+1
+3
+1
+2
+2
+2
+2
+0
+Llamar al llegar; portón gris.
+s
+3
+2
+3
+2
+3
+1
+4
+7
+6
+0

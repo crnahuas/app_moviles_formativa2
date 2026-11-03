@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Pizzería Semana 2" type="JetRunConfigurationType" factoryName="Kotlin">
+    <option name="MAIN_CLASS_NAME" value="MainKt" />
+    <module name="PizzeriaKotlinS2" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
